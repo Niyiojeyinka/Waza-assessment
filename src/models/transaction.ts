@@ -3,6 +3,13 @@ import { generateUniqueId } from '../helpers/id-generator';
 import { AccountID } from './account';
 
 export type TransactionID = string;
+export interface ITransaction {
+    id: TransactionID;
+    sourceAccountId: AccountID;
+    destinationAccountId: AccountID;
+    amount: Decimal;
+    createdAt: Date;
+}
 
 export class Transaction {
     id: TransactionID;

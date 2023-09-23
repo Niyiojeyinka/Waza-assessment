@@ -1,7 +1,7 @@
 import Decimal from "decimal.js";
 import SimulatedDBTransaction from "../helpers/database";
 import { AccountID, Account } from "../models/account";
-import { TransactionID, Transaction } from "../models/transaction";
+import { TransactionID, Transaction, ITransaction } from "../models/transaction";
 import { ErrorResponse } from "../helpers/error";
 
 class FundTransfer {
@@ -14,7 +14,7 @@ class FundTransfer {
         return account;
     }
 
-    transferFunds(sourceId: AccountID, destinationId: AccountID, amount: Decimal): Transaction | ErrorResponse {
+    transferFunds(sourceId: AccountID, destinationId: AccountID, amount: Decimal): ITransaction | ErrorResponse {
         const source = this.accounts.get(sourceId);
         const destination = this.accounts.get(destinationId);
 
@@ -57,9 +57,8 @@ class FundTransfer {
 
     }
 
-    getTransactionHistory(accountId: AccountID): Transaction[] {
+    getTransactionHistory(accountId: AccountID): ITransaction[] {
         const relatedTransactions: Transaction[] = [];
-        console.log('all transactions', this.transactions)
         this.transactions.forEach(transaction => {
             if (transaction.sourceAccountId === accountId || transaction.destinationAccountId === accountId) {
                 relatedTransactions.push(transaction);
