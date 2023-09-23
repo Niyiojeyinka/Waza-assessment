@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./dist/index.js",
-    "test": "jest -i --detectOpenHandles --forceExit --coverage"
+    "start": "tsc && node ./dist/src/index.js",
+    "test": "jest -i --detectOpenHandles --forceExit --coverage",
+    "postinstall": "npm install -g typescript"
   },
   "keywords": [],
   "author": "",
