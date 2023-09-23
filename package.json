@@ -1,0 +1,22 @@
+{
+  "name": "waza-assesment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./dist/index.js",
+    "create": "npm start createAccount",
+    "transfer": "npm start transferFunds",
+    "history": "npm start getTransactionHistory"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "decimal.js": "^10.4.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
